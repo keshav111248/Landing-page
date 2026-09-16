@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-midnight: #070b19;
+  --color-brand-night: #0b132b;
+  --color-brand-surface: #0f172a;
+  --color-brand-lime: #d9f99d;
+  --color-brand-limeHover: #bef264;
+  --color-brand-accent: #10b981;
+  --color-brand-violet: #6366f1;
+  --color-brand-indigo: #4f46e5;
+  --color-brand-cyan: #06b6d4;
+  --color-brand-sky: #0ea5e9;
+  --color-brand-rose: #ec4899;
+  --color-brand-magenta: #be185d;
+  --font-sans: "Plus Jakarta Sans", "Inter", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* Preserve smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+}
+
+/* Award-Winning Dribbble & Behance Multi-Layer Pastel Mesh Canvas */
+.behance-aurora-bg {
+  background: 
+    radial-gradient(ellipse 70% 55% at 12% 8%, #fed7aa 0%, rgba(254, 215, 170, 0.45) 25%, transparent 60%),
+    radial-gradient(ellipse 65% 50% at 88% 12%, #e0e7ff 0%, rgba(224, 231, 255, 0.5) 30%, transparent 65%),
+    radial-gradient(circle at 50% 38%, #bae6fd 0%, rgba(186, 230, 253, 0.35) 35%, transparent 65%),
+    radial-gradient(ellipse 60% 45% at 82% 70%, #bbf7d0 0%, rgba(187, 247, 208, 0.4) 30%, transparent 60%),
+    radial-gradient(circle at 18% 82%, #fed7aa 0%, rgba(254, 215, 170, 0.35) 25%, transparent 55%),
+    radial-gradient(ellipse 55% 45% at 50% 92%, #e0e7ff 0%, transparent 60%),
+    #f8fafc;
+  background-attachment: fixed;
+}
+
+/* Ambient dynamic floating keyframes */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-16px) rotate(2deg); }
+}
+@keyframes float-reverse {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(16px) rotate(-2deg); }
+}
+@keyframes wave-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -20px) scale(1.08); }
+}
+@keyframes glow-shimmer {
+  0%, 100% { opacity: 0.55; filter: blur(120px); }
+  50% { opacity: 0.85; filter: blur(150px); }
+}
+
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+.animate-float-rev {
+  animation: float-reverse 10s ease-in-out infinite;
+}
+.animate-wave-drift {
+  animation: wave-drift 14s ease-in-out infinite;
+}
+.animate-glow-shimmer {
+  animation: glow-shimmer 7s ease-in-out infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-slow,
+  .animate-float-rev,
+  .animate-wave-drift,
+  .animate-glow-shimmer {
+    animation: none !important;
+  }
+}
+
+/* Polished Frosted Glass Elements with Tinted Ambient Drop Shadow */
+.frosted-glass {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  box-shadow: 0 20px 48px -12px rgba(99, 102, 241, 0.12),
+              0 8px 24px -6px rgba(14, 165, 233, 0.08),
+              0 0 0 1px rgba(255, 255, 255, 0.8) inset,
+              0 1px 2px 0 rgba(255, 255, 255, 1) inset;
+}
+
+.frosted-glass:hover {
+  border-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 32px 70px -16px rgba(99, 102, 241, 0.22),
+              0 16px 36px -8px rgba(236, 72, 153, 0.18),
+              0 0 0 1px rgba(255, 255, 255, 0.95) inset,
+              0 2px 4px 0 rgba(255, 255, 255, 1) inset;
+}
+
+.frosted-dark {
+  background: linear-gradient(135deg, rgba(11, 19, 43, 0.94) 0%, rgba(7, 11, 25, 0.98) 100%);
+  backdrop-filter: blur(32px) saturate(190%);
+  -webkit-backdrop-filter: blur(32px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 35px 80px -20px rgba(7, 11, 25, 0.7), 
+              inset 0 1px 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.luminous-text {
+  background: linear-gradient(135deg, #090d16 20%, #4338ca 65%, #0284c7 95%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.aurora-accent-text {
+  background: linear-gradient(135deg, #be185d 0%, #6366f1 45%, #0284c7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Ambient noise overlay simulation */
+.film-grain {
+  background-image: radial-gradient(rgba(15, 23, 42, 0.035) 1px, transparent 0);
+  background-size: 28px 28px;
+}
+
+/* Subtle grid overlay */
+.hero-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(99, 102, 241, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(99, 102, 241, 0.04) 1px, transparent 1px);
+}
+
+/* Glass Shadows */
+.shadow-glass-lum {
+  box-shadow: 0 25px 60px -15px rgba(99, 102, 241, 0.16), 0 10px 30px -10px rgba(14, 165, 233, 0.18), 0 0 0 1px rgba(255, 255, 255, 0.95);
+}
+.shadow-glass-card {
+  box-shadow: 0 20px 50px -12px rgba(99, 102, 241, 0.12), 0 8px 24px -8px rgba(244, 114, 182, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.85);
+}
+.shadow-glass-card-hover {
+  box-shadow: 0 32px 75px -15px rgba(99, 102, 241, 0.26), 0 16px 36px -10px rgba(236, 72, 153, 0.22), 0 0 0 1.5px rgba(255, 255, 255, 1);
+}
+.shadow-glass-dark {
+  box-shadow: 0 35px 85px -20px rgba(7, 11, 25, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.18), inset 0 1px 1px rgba(255, 255, 255, 0.28);
+}
+.shadow-pill-glow {
+  box-shadow: 0 0 35px -5px rgba(14, 165, 233, 0.45);
+}
+
