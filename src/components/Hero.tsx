@@ -37,7 +37,7 @@ export const Hero: React.FC<HeroProps> = ({ onStartTrial: _onStartTrial, onBookD
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button
                 type="button"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-slate-950 via-slate-900 to-indigo-950 hover:from-indigo-950 hover:to-slate-950 text-white text-sm font-semibold px-8 py-3.5 rounded-[6px] shadow-xl shadow-indigo-950/30 hover:shadow-indigo-950/40 hover:scale-105 transition-all duration-300 group border border-white/20 cursor-pointer"
+                className="w-full sm:w-auto sm:min-w-[190px] h-[50px] inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-slate-950 via-slate-900 to-indigo-950 hover:from-indigo-950 hover:to-slate-950 text-white text-sm font-semibold px-8 py-3.5 rounded-[6px] shadow-xl shadow-indigo-950/30 hover:shadow-indigo-950/40 hover:scale-105 transition-all duration-300 group border border-white/20 cursor-pointer"
                 onClick={(e) => {
                   e.preventDefault();
                   if (onBookDemo) {
@@ -46,13 +46,13 @@ export const Hero: React.FC<HeroProps> = ({ onStartTrial: _onStartTrial, onBookD
                 }}
               >
                 <span>Book a Demo</span>
-                <svg className="w-4 h-4 text-cyan-300 group-hover:translate-x-1.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 text-cyan-300 group-hover:translate-x-1.5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5"></path>
                 </svg>
               </button>
 
               <a
-                className="w-full sm:w-auto inline-flex items-center justify-center frosted-glass hover:bg-white text-slate-800 border border-white/95 text-sm font-semibold px-8 py-3.5 rounded-[6px] shadow-glass-card hover:shadow-glass-card-hover hover:scale-105 transition-all duration-300 cursor-pointer"
+                className="w-full sm:w-auto sm:min-w-[190px] h-[50px] inline-flex items-center justify-center gap-2.5 bg-white/90 hover:bg-white text-slate-900 border border-slate-300/90 hover:border-indigo-400 text-sm font-semibold px-8 py-3.5 rounded-[6px] shadow-md hover:shadow-lg shadow-slate-900/5 hover:scale-105 transition-all duration-300 group backdrop-blur-md cursor-pointer"
                 href="#pricing"
                 onClick={(e) => {
                   e.preventDefault();
@@ -62,7 +62,10 @@ export const Hero: React.FC<HeroProps> = ({ onStartTrial: _onStartTrial, onBookD
                   }
                 }}
               >
-                Pricing
+                <span>View Pricing</span>
+                <svg className="w-4 h-4 text-indigo-600 group-hover:translate-y-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 9l-7 7-7-7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5"></path>
+                </svg>
               </a>
             </div>
 

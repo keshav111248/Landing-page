@@ -20,7 +20,7 @@ const FAQ_ITEMS = [
 ];
 
 export const FAQ: React.FC = () => {
-  const [openIndexes, setOpenIndexes] = useState<number[]>([0, 1, 2, 3]);
+  const [openIndexes, setOpenIndexes] = useState<number[]>([0]);
 
   const toggleIndex = (idx: number) => {
     setOpenIndexes((prev) =>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface NavbarProps {
   onLoginClick?: () => void;
@@ -7,6 +7,34 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ onLoginClick, onBookDemoClick }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+          setIsScrolled((prev) => {
+            // Hysteresis buffer to completely eliminate oscillation and boundary flickering
+            if (!prev && currentScrollY > 30) {
+              return true;
+            } else if (prev && currentScrollY < 12) {
+              return false;
+            }
+            return prev;
+          });
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((prev) => !prev);
@@ -27,8 +55,26 @@ export const Navbar: React.FC<NavbarProps> = ({ onLoginClick, onBookDemoClick })
   };
 
   return (
-    <header className="sticky top-4 z-50 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all" data-purpose="site-navigation">
-      <div className="frosted-glass rounded-[6px] h-16 sm:h-20 px-6 flex items-center justify-between transition-all duration-300 shadow-glass-lum hover:shadow-glass-card-hover">
+    <>
+      {/* Layout spacer to preserve document flow & completely prevent layout shifts */}
+      <div className="h-20 sm:h-24 w-full shrink-0 pointer-events-none" aria-hidden="true" />
+
+      <header
+        className={`fixed top-0 inset-x-0 z-50 w-full transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          isScrolled
+            ? 'pt-0 bg-white/90 backdrop-blur-xl border-b border-slate-200/80 shadow-md shadow-slate-900/5'
+            : 'pt-3 sm:pt-4 bg-transparent border-b-transparent'
+        }`}
+        data-purpose="site-navigation"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]">
+          <div
+            className={`flex items-center justify-between transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              isScrolled
+                ? 'h-16 px-2 sm:px-4 bg-transparent shadow-none border-none'
+                : 'frosted-glass rounded-[8px] h-16 sm:h-20 px-6 shadow-glass-lum hover:shadow-glass-card-hover border border-white/60'
+            }`}
+          >
         {/* Brand Logo */}
         <a className="flex items-center gap-3.5 group" href="#">
           <div className="w-10 h-10 rounded-[6px] bg-gradient-to-tr from-brand-midnight via-slate-900 to-indigo-900 flex items-center justify-center text-brand-lime shadow-lg shadow-indigo-950/25 group-hover:scale-105 group-hover:rotate-1 transition-all duration-200 border border-white/30">
@@ -101,7 +147,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onLoginClick, onBookDemoClick })
 
       {/* Mobile Menu Drawer */}
       {isMobileMenuOpen && (
-        <div className="md:hidden mt-2 p-4 frosted-glass rounded-[6px] shadow-glass-card space-y-3">
+        <div className="md:hidden mt-2 p-4 frosted-glass rounded-[8px] shadow-glass-card space-y-3 border border-white/40 mb-3">
           <a className="block py-2 text-sm font-semibold text-slate-700 hover:text-indigo-600" href="#features" onClick={closeMobileMenu}>Features</a>
           <a className="block py-2 text-sm font-semibold text-slate-700 hover:text-indigo-600" href="#how-it-works" onClick={closeMobileMenu}>How it works</a>
           <a className="block py-2 text-sm font-semibold text-slate-700 hover:text-indigo-600" href="#modules" onClick={closeMobileMenu}>Modules</a>
@@ -122,7 +168,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onLoginClick, onBookDemoClick })
           </div>
         </div>
       )}
-    </header>
+    </div>
+  </header>
+</>
   );
 };
 
