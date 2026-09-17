@@ -18,7 +18,10 @@ export const BottomCtaBanner: React.FC<BottomCtaBannerProps> = ({ onOpenCheckout
     setErrorMessage('');
 
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+      const rawApiUrl = import.meta.env.VITE_API_URL || 'https://omnihr-backend-19fx.onrender.com/api';
+      const apiUrl = rawApiUrl.replace(/\/$/, '').endsWith('/api')
+        ? rawApiUrl.replace(/\/$/, '')
+        : `${rawApiUrl.replace(/\/$/, '')}/api`;
       const apiKey = import.meta.env.VITE_LANDING_PAGE_API_KEY || 'encalm-landing-secret-2024';
 
       const response = await fetch(`${apiUrl}/public/demo-request`, {

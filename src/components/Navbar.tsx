@@ -16,7 +16,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onLoginClick, onBookDemoClick })
     setIsMobileMenuOpen(false);
   };
 
-  const appUrl = (import.meta.env.VITE_APP_URL || 'http://localhost:5173').replace(/\/$/, '');
+  const appUrl = (import.meta.env.VITE_APP_URL || 'https://omnihr-frontend.vercel.app').replace(/\/$/, '');
   const loginUrl = `${appUrl}/signin`;
 
   const handleLogin = (e: React.MouseEvent) => {

@@ -34,10 +34,13 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, plan, onCl
     loginUrl?: string;
   } | null>(null);
 
-  const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+  const rawApiUrl = import.meta.env.VITE_API_URL || 'https://omnihr-backend-19fx.onrender.com/api';
+  const apiUrl = rawApiUrl.replace(/\/$/, '').endsWith('/api')
+    ? rawApiUrl.replace(/\/$/, '')
+    : `${rawApiUrl.replace(/\/$/, '')}/api`;
   const apiKey = import.meta.env.VITE_LANDING_PAGE_API_KEY || 'encalm-landing-secret-2024';
   const defaultKeyId = import.meta.env.VITE_RAZORPAY_KEY_ID || 'rzp_test_SNpCTt9AUYnOyq';
-  const appUrl = import.meta.env.VITE_APP_URL || 'https://omnihr-frontend.vercel.app';
+  const appUrl = (import.meta.env.VITE_APP_URL || 'https://omnihr-frontend.vercel.app').replace(/\/$/, '');
 
   useEffect(() => {
     if (isOpen) {
