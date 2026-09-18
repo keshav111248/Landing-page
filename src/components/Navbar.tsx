@@ -76,17 +76,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onLoginClick, onBookDemoClick })
             }`}
           >
         {/* Brand Logo */}
-        <a className="flex items-center gap-3.5 group" href="#">
-          <div className="w-10 h-10 rounded-[6px] bg-gradient-to-tr from-brand-midnight via-slate-900 to-indigo-900 flex items-center justify-center text-brand-lime shadow-lg shadow-indigo-950/25 group-hover:scale-105 group-hover:rotate-1 transition-all duration-200 border border-white/30">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" viewBox="0 0 24 24">
-              <rect height="8" rx="2" width="8" x="3" y="3"></rect>
-              <path d="M13 5h8"></path>
-              <path d="M13 9h5"></path>
-              <rect height="6" rx="2" width="8" x="3" y="15"></rect>
-              <path d="M13 17h8"></path>
-              <path d="M13 21h4"></path>
-            </svg>
-          </div>
+        <a className="flex items-center gap-3 group" href="#">
+          <img
+            src="/assets/logo.png"
+            alt="OmniHR Logo"
+            className="w-10 h-10 object-contain rounded-[6px] shadow-sm group-hover:scale-105 transition-all duration-200"
+          />
           <span className="text-xl font-extrabold tracking-tight text-slate-900">
             Omni<span className="text-indigo-600 font-bold">HR</span>
           </span>

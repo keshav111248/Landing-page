@@ -47,14 +47,11 @@ export const Footer: React.FC = () => {
           {/* Brand Summary & BlockCoders Attribution */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-8 h-8 rounded-xl bg-slate-950 flex items-center justify-center text-brand-lime shadow-sm">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24">
-                  <rect height="8" rx="2" width="8" x="3" y="3"></rect>
-                  <path d="M13 5h8"></path>
-                  <path d="M13 9h5"></path>
-                  <rect height="6" rx="2" width="8" x="3" y="15"></rect>
-                </svg>
-              </div>
+              <img
+                src="/assets/logo.png"
+                alt="OmniHR Logo"
+                className="w-8 h-8 object-contain rounded-[6px]"
+              />
               <span className="text-lg font-bold text-slate-900">
                 Omni<span className="text-indigo-600 font-semibold">HR</span>
               </span>
@@ -65,18 +62,23 @@ export const Footer: React.FC = () => {
             </p>
 
             {/* BlockCoders Company Reference */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-100/90 border border-slate-200 text-slate-700 font-medium mb-4">
+            <a
+              href="https://theblockcoders.co"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-100/90 hover:bg-slate-200/90 border border-slate-200 text-slate-700 font-medium mb-4 transition-all"
+            >
               <span className="w-2 h-2 rounded-full bg-indigo-600 animate-pulse"></span>
-              <span>A proud product of <strong className="text-slate-950 font-bold">BlockCoders</strong></span>
-            </div>
+              <span>Developed &amp; Operated by <strong className="text-slate-950 font-bold hover:text-indigo-600">BlockCoders</strong></span>
+            </a>
 
-            <div className="flex items-center gap-2 text-slate-400 text-[11px] font-medium">
+            {/* <div className="flex items-center gap-2 text-slate-400 text-[11px] font-medium">
               <span>SOC-2 Type II Certified</span>
               <span>•</span>
               <span>ISO 27001:2022</span>
               <span>•</span>
               <span>GDPR Compliant</span>
-            </div>
+            </div> */}
           </div>
 
           {/* Product Links */}
@@ -86,7 +88,6 @@ export const Footer: React.FC = () => {
               <li><a className="hover:text-indigo-600 transition-colors" href="#features">Core Features</a></li>
               <li><a className="hover:text-indigo-600 transition-colors" href="#modules">10 HR Modules</a></li>
               <li><a className="hover:text-indigo-600 transition-colors" href="#how-it-works">Biometric Sync</a></li>
-              <li><a className="hover:text-indigo-600 transition-colors" href="#pricing">Payroll Engine</a></li>
               <li><a className="hover:text-indigo-600 transition-colors" href="#pricing">Pricing Matrix</a></li>
             </ul>
           </div>
@@ -150,12 +151,20 @@ export const Footer: React.FC = () => {
         {/* Bottom Credits */}
         <div className="pt-8 border-t border-slate-200/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 font-medium">
           <div>
-            © {new Date().getFullYear()} OmniHR • Developed &amp; Operated by <strong className="text-slate-800 font-bold">BlockCoders</strong>. All rights reserved.
+            © {new Date().getFullYear()} OmniHR • Developed &amp; Operated by{' '}
+            <a
+              href="https://theblockcoders.co"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-800 font-bold hover:text-indigo-600 underline underline-offset-2 transition-colors"
+            >
+              BlockCoders
+            </a>
+            . All rights reserved.
           </div>
           <div className="flex items-center gap-6">
             <a className="hover:text-slate-800 transition-colors" href="#">Privacy Policy</a>
             <a className="hover:text-slate-800 transition-colors" href="#">Terms of Service</a>
-            <a className="hover:text-slate-800 transition-colors" href="#">Security</a>
           </div>
         </div>
       </div>

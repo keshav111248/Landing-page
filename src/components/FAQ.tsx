@@ -20,12 +20,10 @@ const FAQ_ITEMS = [
 ];
 
 export const FAQ: React.FC = () => {
-  const [openIndexes, setOpenIndexes] = useState<number[]>([0]);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleIndex = (idx: number) => {
-    setOpenIndexes((prev) =>
-      prev.includes(idx) ? prev.filter((i) => i !== idx) : [...prev, idx]
-    );
+    setOpenIndex((prev) => (prev === idx ? null : idx));
   };
 
   return (
@@ -44,7 +42,7 @@ export const FAQ: React.FC = () => {
         </div>
         <div className="space-y-4">
           {FAQ_ITEMS.map((item, idx) => {
-            const isOpen = openIndexes.includes(idx);
+            const isOpen = openIndex === idx;
             return (
               <div
                 key={idx}
